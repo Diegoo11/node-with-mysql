@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning tailwind a ejs</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'downy': {
+              DEFAULT: '#74D3BB',
+              50: '#FFFFFF',
+              100: '#F0FAF8',
+              200: '#D1F0E8',
+              300: '#B2E7D9',
+              400: '#93DDCA',
+              500: '#74D3BB',
+              600: '#49C6A6',
+              700: '#34A387',
+              800: '#267964',
+              900: '#194E40',
+              950: '#12392F'
+            },
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="min-h-screen bg-gray-200 w-screen flex justify-start items-center flex-col">
+  <nav class="p-7">
+    <a href="/" class="font-bold text-xl hover:translate-y-1 border-blue-900 border-2 rounded-md px-3 py-1 border-solid text-blue-900">
+      CRUD in nodejs
+    </a>
+  </nav>

@@ -1,0 +1,30 @@
+<%- include("partials/_header") %>
+
+<div class="w-11/12 max-w-md border-solid border-b-2 rounded-sm p-5">
+  <form action="/edit/<%= data.id %>" method="post" class="border-solid border-2 rounded-md border-black flex flex-col justify-center items-center gap-5 p-5">
+    <label class="min-w-full flex justify-between">
+      <span>Name:</span>
+      <input id="name" name="name" value="<%= data.name %>">
+    </label>
+    <label class="min-w-full flex justify-between">
+      <span>Description:</span>
+      <input id="description" name="description" value="<%= data.description %>">
+    </label>
+    <div class="flex">
+      <input type="checkbox" id="state" class="peer hidden" name="state" <input type="checkbox" <% if (data.state) { %> checked <% } %> />
+      <label for="state"
+        class="select-none cursor-pointer rounded-lg border-2 border-blue-800
+    py-3 px-6 font-bold text-blue-800 transition-colors duration-200 ease-in-out peer-checked:bg-blue-800 peer-checked:text-gray-200 peer-checked:border-blue-800 ">
+        Finished
+      </label>
+    </div>
+    <div class="w-full flex justify-center items-center">
+      <button type="submit" class="border-solid border-2 rounded-md text-gray-300 bg-gray-900 border-gray-900
+      font-bold px-3 py-1 hover:text-gray-900 hover:bg-gray-300 active:translate-y-1 transition-all">
+        Edit
+      </button>
+    </div>
+  </form>
+</div>
+
+<%- include("partials/_footer") %>

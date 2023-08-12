@@ -1,0 +1,82 @@
+<%- include("partials/_header") %>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 w-11/12 justify-center items-center min-w-fit max-w-6xl
+place-content-center">
+    <div class="col-span-1 md:col-span-2 min-w-fit">
+      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+            <th scope="col" class="px-6 py-3">
+              Name
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Description
+            </th>
+            <th scope="col" class="px-6 py-3">
+              state
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Acctions
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (data){%>
+            <% for(let i = 0; i < data.length; i+=1){ %>
+              <tr class="bg-white border-b">
+                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <%= data[i].name %>
+                </td>
+                <td class="px-6 py-4">
+                  <%= data[i].description %>
+                </td>
+                <td class="px-6 py-4">
+                  <%= data[i].state %>
+                </td>
+                <td class="flex justify-center items-center gap-4 h-full">
+                  <a href="/delete/<%= data[i].id %>" class="border-solid border-2 rounded-md text-gray-300 bg-gray-900 border-gray-900
+                  font-bold px-3 py-1 hover:text-gray-900 hover:bg-gray-300 active:translate-y-1 transition-all">
+                    Delete
+                  </a>
+                  <a href="/edit/<%= data[i].id %>" class="border-solid border-2 rounded-md text-gray-300 bg-gray-900 border-gray-900
+                  font-bold px-3 py-1 hover:text-gray-900 hover:bg-gray-300 active:translate-y-1 transition-all">
+                    Edit
+                  </a>
+                </td>
+              </tr>
+            <% } %>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-span-1 min-w-fit">
+      <form action="/add" method="post"
+        class="border-solid border-2 rounded-md border-black flex flex-col justify-center items-center gap-5 p-5">
+        <label class="min-w-full flex justify-between">
+          <span>Name:</span>
+          <input id="name" name="name">
+        </label>
+        <label class="min-w-full flex justify-between">
+          <span>Description:</span>
+          <input id="description" name="description">
+        </label>
+        <div class="flex">
+          <input type="checkbox" id="state" class="peer hidden" name="state" />
+          <label for="state"
+            class="select-none cursor-pointer rounded-lg border-2 border-blue-800
+        py-3 px-6 font-bold text-blue-800 transition-colors duration-200 ease-in-out peer-checked:bg-blue-800 peer-checked:text-gray-200 peer-checked:border-blue-800 ">
+            Finished </label>
+        </div>
+        <div class="w-full flex justify-center items-center">
+          <button type="submit" class="border-solid border-2 rounded-md text-gray-300 bg-gray-900 border-gray-900
+          font-bold px-3 py-1 hover:text-gray-900 hover:bg-gray-300 active:translate-y-1 transition-all">
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+
+
+  </div>
+
+  <%- include("partials/_footer") %>
